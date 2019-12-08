@@ -1,0 +1,37 @@
+server:
+  port: 0
+  
+  
+spring:
+  application:
+    name: manager-service
+  cloud:
+   config:
+    uri: http://localhost:8765/
+  datasource:
+    url:  jdbc:mysql://project-management.cmbnvqzejn0j.us-east-2.rds.amazonaws.com:3306/project_management?useSSL=false&serverTimezone=UTC
+    username: admin
+    password: PassworD
+    
+  jpa:
+    hibernate:
+      dialect: org.hibernate.dialect.MySQL5Dialect
+      ddl-auto: none
+    show-sql: true  
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: projectmng789sys@gmail.com 
+    password: vanass@789
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+       
+  data:
+    mongodb:
+      uri:  mongodb+srv://user1:zVcOiZnu2OByw56x@cluster0-egasi.mongodb.net/ProjectManagement?retryWrites=true&w=majority
+
+    
+    

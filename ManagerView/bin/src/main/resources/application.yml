@@ -1,0 +1,36 @@
+server:
+  port: 5656
+  
+  
+spring:
+  application:
+    name: spring-end
+  datasource:
+    url: jdbc:mysql://localhost:3306/project_management
+    username: root
+    password: pass@word1  
+    initialization-mode: always  
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: projectmng789sys@gmail.com 
+    password: vanass@789
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+       
+      
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    
+    
+  data:
+    mongodb:
+      uri: mongodb://127.0.0.1:27017/projectDescStakeDatabase
+
+    
+    
