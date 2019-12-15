@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.ProjectDescStake;
 import com.example.demo.mongorepository.ProjectDescStakeRepository;
+import com.example.demo.service.ProjectDescStakeService;
 import com.example.demo.service.ProjectDescStakeServiceImpl;
 
 
@@ -23,13 +24,13 @@ public class ProjectDescStakeController {
 	@Autowired
 	private Environment env;
 	@Autowired
-	private ProjectDescStakeServiceImpl projectDescStakeServiceImpl;
+	private ProjectDescStakeService projectDescStakeService;
 	
 	@LoadBalanced
 	@PostMapping(value = "/saveProjectDesc")
 	public ProjectDescStake saveProjectDesc(@RequestBody ProjectDescStake projectDescStake) {
 		System.out.println(env.getProperty("server.port"));
-		return projectDescStakeServiceImpl.saveProjectDesc(projectDescStake);
+		return projectDescStakeService.saveProjectDesc(projectDescStake);
 		
 	}
 	

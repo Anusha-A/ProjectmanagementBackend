@@ -9,9 +9,9 @@ spring:
    config:
     uri: http://localhost:8765/
   datasource:
-    url:  jdbc:mysql://project-management.cmbnvqzejn0j.us-east-2.rds.amazonaws.com:3306/project_management?useSSL=false&serverTimezone=UTC
-    username: admin
-    password: PassworD
+    url:  jdbc:mysql://localhost:3306/project_management?useSSL=false&serverTimezone=UTC
+    username: root
+    password: pass@word1
     
   jpa:
     hibernate:
@@ -31,7 +31,7 @@ spring:
        
   data:
     mongodb:
-      uri:  mongodb+srv://user1:zVcOiZnu2OByw56x@cluster0-egasi.mongodb.net/ProjectManagement?retryWrites=true&w=majority
+      uri: mongodb://127.0.0.1:27017/projectDescStakeDatabase
 
     
     

@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
 
-@Data
+//@Data
 @Entity
 @Table(name = "employee_skills")
 @IdClass(ProjectEmployeeSkillsComposite.class)
@@ -37,5 +37,7 @@ public class EmployeeSkills implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY,optional=false,targetEntity = Skills.class)
 	@JoinColumn(name = "skill_id")
 	private Skills skillId;
+
+	
 
 }

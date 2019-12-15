@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.Employee;
 import com.example.demo.entity.EmployeeSkills;
+import com.example.demo.service.EmployeeSkillsService;
 import com.example.demo.service.EmployeeSkillsServiceImpl;
 
 @RestController
@@ -22,14 +23,14 @@ public class EmployeeSkillsController {
 	@Autowired
 	private Environment env;
 	@Autowired
-	private EmployeeSkillsServiceImpl employeeSkillServiceImpl;
+	private EmployeeSkillsService employeeSkillService;
 	
 	@LoadBalanced
 	@GetMapping(value = "/getEmployeesBySkills/{skillName}")
 	public List<Employee> getEmployeesBySkills(@PathVariable String skillName){
 		
 		System.out.println(env.getProperty("server.port"));
-		return employeeSkillServiceImpl.getEmployeesBySkill(skillName);
+		return employeeSkillService.getEmployeesBySkill(skillName);
 		
 		
 	}
@@ -37,7 +38,7 @@ public class EmployeeSkillsController {
 	@GetMapping(value = "/getEmployeeSkills/{employeeId}")
 	public List<EmployeeSkills> getEmployeeSkills(@PathVariable Long employeeId){
 		System.out.println(env.getProperty("server.port"));
-		return employeeSkillServiceImpl.getEmployeeSkills(employeeId);	
+		return employeeSkillService.getEmployeeSkills(employeeId);	
 		
 	}
 	

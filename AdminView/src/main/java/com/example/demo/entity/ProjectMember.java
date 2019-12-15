@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 @SuppressWarnings("serial")
-@Data
+
 @Entity
 @Table(name = "project_member")
 @IdClass(ProjectMemberComposite.class)
@@ -41,6 +41,30 @@ public class ProjectMember implements Serializable
 	
 	@Column(name="authority", columnDefinition = "boolean default 1")
 	private boolean authority;
+
+	public Employee getEmployeeId() {
+		return employeeId;
+	}
+
+	public void setEmployeeId(Employee employeeId) {
+		this.employeeId = employeeId;
+	}
+
+	public Project getProjectId() {
+		return projectId;
+	}
+
+	public void setProjectId(Project projectId) {
+		this.projectId = projectId;
+	}
+
+	public boolean isAuthority() {
+		return authority;
+	}
+
+	public void setAuthority(boolean authority) {
+		this.authority = authority;
+	}
 
 	
 }

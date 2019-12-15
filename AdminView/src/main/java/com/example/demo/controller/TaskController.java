@@ -38,12 +38,12 @@ public class TaskController {
 		return taskService.getTaskByProjectId(projectId);
 	}
 	
-	@LoadBalanced
+	/*@LoadBalanced
 	@GetMapping("/getTasks")
 	public List<Task> getallTasks()
 	{
 		System.out.println(env.getProperty("server.port"));
 		return taskService.getTasks();
-	}
+	}*/
 
 }

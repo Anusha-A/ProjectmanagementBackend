@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.entity.Employee;
 import com.example.demo.entity.EmployeeSkills;
 import com.example.demo.service.EmployeeService;
-import com.example.demo.service.EmployeeSkillsService;
+
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -25,8 +25,7 @@ public class EmployeeController {
 	private EmployeeService employeeService;
 	@Autowired
 	private Environment env;
-	@Autowired
-	private EmployeeSkillsService employeeSkillsService;
+	
 	
 	@LoadBalanced
 	@GetMapping("/search")

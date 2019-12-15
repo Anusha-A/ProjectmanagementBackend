@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.Subtask;
 import com.example.demo.entity.Task;
+import com.example.demo.service.SubTaskService;
 import com.example.demo.service.SubTaskServiceImpl;
 import com.example.demo.service.TaskServiceImpl;
 
@@ -24,7 +25,7 @@ import com.example.demo.service.TaskServiceImpl;
 public class SubTaskController {
 	
 	@Autowired
-	private SubTaskServiceImpl subtaskServiceImpl;
+	private SubTaskService subtaskService;
 	@Autowired
 	private Environment env;
 	@Autowired
@@ -34,7 +35,7 @@ public class SubTaskController {
 	@PostMapping("/SubTask")
 	public Subtask saveTask(@RequestBody Subtask stask) {	
 		System.out.println(env.getProperty("server.port"));
-		return subtaskServiceImpl.saveSubTask(stask);
+		return subtaskService.saveSubTask(stask);
 	}
 	
 	@LoadBalanced
@@ -43,7 +44,7 @@ public class SubTaskController {
 		System.out.println(env.getProperty("server.port"));
 		
 		Task tt = taskServiceImpl.getTasksById(ltaskId);
-		return subtaskServiceImpl.findByTaskId(tt);
+		return subtaskService.findByTaskId(tt);
 	}
 
 }

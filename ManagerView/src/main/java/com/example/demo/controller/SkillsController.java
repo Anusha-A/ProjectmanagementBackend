@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.Skills;
+import com.example.demo.service.SkillsService;
 import com.example.demo.service.SkillsServiceImpl;
 
 @RestController
@@ -19,14 +20,15 @@ import com.example.demo.service.SkillsServiceImpl;
 public class SkillsController {
 	@Autowired
 	private Environment env;
+	
 	@Autowired
-	private SkillsServiceImpl skillsServiceImpl;
+	private SkillsService skillsService;
 	
 	@LoadBalanced
 	@GetMapping(value = "/getAllSkills")
 	public List<Skills> getAllSkills(){
 		System.out.println(env.getProperty("server.port"));
-		return skillsServiceImpl.getAllSkills();
+		return skillsService.getAllSkills();
 	}
 
 }

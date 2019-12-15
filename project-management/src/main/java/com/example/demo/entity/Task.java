@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Data
+
 @Table(name = "task")
 @NoArgsConstructor
 @AllArgsConstructor
@@ -61,4 +61,52 @@ public class Task implements Serializable
 	
 	@Column(name = "progress")
 	private Long progress;
+
+	public Long getTaskId() {
+		return taskId;
+	}
+
+	
+	public Project getProjectId() {
+		return projectId;
+	}
+
+	
+	public String getTaskTitle() {
+		return taskTitle;
+	}
+
+	
+
+	public String getDescription() {
+		return description;
+	}
+
+	
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	
+
+	public Date getDueDate() {
+		return dueDate;
+	}
+
+	public Long getSubTaskCount() {
+		return subTaskCount;
+	}
+
+	
+	public Long getProgress() {
+		return progress;
+	}
+
+	public void setProgress(Long progress) {
+		this.progress = progress;
+	}
+	
+	
+	
 }	

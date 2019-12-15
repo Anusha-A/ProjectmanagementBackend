@@ -12,8 +12,6 @@ import lombok.NoArgsConstructor;
 
 
 @NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode
 public class ProjectMemberComposite implements Serializable {
 	
 	

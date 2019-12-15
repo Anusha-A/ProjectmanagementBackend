@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.Project;
 import com.example.demo.entity.ProjectMember;
+import com.example.demo.service.ProjectMemberService;
 import com.example.demo.service.ProjectMemberServiceImpl;
+import com.example.demo.service.ProjectService;
 import com.example.demo.service.ProjectServiceImpl;
 
 @RestController
@@ -23,34 +25,35 @@ import com.example.demo.service.ProjectServiceImpl;
 @CrossOrigin(origins = "*")
 public class ProjectMemberController {
 	
+	@Autowired
 	private Environment env;
 	@Autowired
-	private ProjectMemberServiceImpl projectMemberServiceImpl;
+	private ProjectMemberService projectMemberService;
 	
 	@Autowired
-	private ProjectServiceImpl projectServiceImpl;
+	private ProjectService projectService;
 	
 	
 	@LoadBalanced
 	@PostMapping(value = "/saveProjectMember")
 	public void saveProjectMember(@RequestBody ProjectMember projectMember) {	
 		System.out.println(env.getProperty("server.port"));
-		 projectMemberServiceImpl.saveProjectMember(projectMember);
+		 projectMemberService.saveProjectMember(projectMember);
 	}
 	
 	@LoadBalanced
 	@GetMapping("/getProjectMember")
 	public List<ProjectMember> getAll(){
 		System.out.println(env.getProperty("server.port"));
-		return projectMemberServiceImpl.getAll();		
+		return projectMemberService.getAll();		
 	}
 	
 	@LoadBalanced
 	@GetMapping("/getAllMembersOfAProject/{project}")
 	public List<ProjectMember> getAllMembersOfAProject(@PathVariable Long project){	
 		System.out.println(env.getProperty("server.port"));
-		Project p = projectServiceImpl.getProjectById(project);
-		return projectMemberServiceImpl.getProjectMemberByProjectId(p);
+		Project p = projectService.getProjectById(project);
+		return projectMemberService.getProjectMemberByProjectId(p);
 		
 	}
 	

@@ -11,20 +11,26 @@ import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.data.repository.NoRepositoryBean;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @SuppressWarnings("serial")
-@Data
+
 @Entity
+@NoArgsConstructor
 @Table(name = "employee")
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 @ApiModel(description = "Details of employees")
 public class Employee implements Serializable
 {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "employee_id")
@@ -61,4 +67,59 @@ public class Employee implements Serializable
 	
 	@Column(name = "eul_agreement", columnDefinition="boolean default 0")
 	private boolean eulAgreement;
+	
+	
+	
+
+
+	public Long getEmployeeId() {
+		return employeeId;
+	}
+
+	
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	
+
+	public String getMiddleName() {
+		return middleName;
+	}
+
+
+	public String getLastName() {
+		return lastName;
+	}
+
+
+	public String getUserType() {
+		return userType;
+	}
+
+	
+
+	public String getUsername() {
+		return username;
+	}
+
+	
+
+	public String getPassword() {
+		return password;
+	}
+
+
+	public boolean isAvailability() {
+		return availability;
+	}
+
+	
+	public boolean isEulAgreement() {
+		return eulAgreement;
+	}
+
+
+
 }

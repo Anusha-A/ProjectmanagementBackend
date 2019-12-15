@@ -25,10 +25,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Data
 @Entity
 @Table(name = "project")
-@AllArgsConstructor
+
 @NoArgsConstructor
 
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -69,5 +68,43 @@ public class Project implements Serializable
 	@ManyToOne(fetch = FetchType.LAZY,optional=false,targetEntity = Employee.class)
     @JoinColumn(name="manager_id")
 	private Employee managerId;
+
+	public Long getProjectId() {
+		return projectId;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public String getGithubLink() {
+		return githubLink;
+	}
+
+	public Long getBudget() {
+		return budget;
+	}
+
+	
+
+	public boolean isCompleted() {
+		return isCompleted;
+	}
+
+	public Employee getManagerId() {
+		return managerId;
+	}
+
 	
 }

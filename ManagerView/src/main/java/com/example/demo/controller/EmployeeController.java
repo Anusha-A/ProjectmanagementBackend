@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.Employee;
 import com.example.demo.mysqlrepository.EmployeeRepository;
+import com.example.demo.service.EmployeeService;
 import com.example.demo.service.EmployeeServiceImpl;
 
 
@@ -24,28 +25,29 @@ import com.example.demo.service.EmployeeServiceImpl;
 public class EmployeeController {
 	@Autowired
 	private Environment env;
+	
 	@Autowired
-	private EmployeeServiceImpl employeeServiceImpl;
+	private EmployeeService employeeService;
 	
 	@LoadBalanced
 	@GetMapping( value =  "/getManagersByAvailability")
 	public List<Employee> getAll(){		
 		System.out.println(env.getProperty("server.port"));
-        return employeeServiceImpl.getAllManagerByAvailability();
+        return employeeService.getAllManagerByAvailability();
 	}
 	
 	@LoadBalanced
 	@GetMapping( value =  "/getMembersByAvailability")
 	public List<Employee> getAllMembers(){	
 		System.out.println(env.getProperty("server.port"));
-        return employeeServiceImpl.getAllMembersByAvailability();
+        return employeeService.getAllMembersByAvailability();
 	}
 	
 	@LoadBalanced
 	@GetMapping("/EmployeeById/{employeeId}")
 	public Employee getEmployeeById(@PathVariable Long employeeId) {
 		System.out.println(env.getProperty("server.port"));
-		return employeeServiceImpl.getEmployeeById(employeeId);
+		return employeeService.getEmployeeById(employeeId);
 		
 		
 	}
@@ -54,7 +56,7 @@ public class EmployeeController {
 	@PutMapping("/updateEul")
 	public Employee updateEmployeeEul(@RequestBody Employee employee) {
 		System.out.println(env.getProperty("server.port"));
-		return employeeServiceImpl.updateEmployeeEul(employee);
+		return employeeService.updateEmployeeEul(employee);
 	}
 	
 	

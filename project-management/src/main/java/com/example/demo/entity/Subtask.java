@@ -18,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
 
-@Data
 @Entity
 @Table(name = "subtask")
 //@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
@@ -56,5 +55,59 @@ public class Subtask
 	
 	@Column(name = "comment")
 	private String comment;
+
+	public Long getSubTaskId() {
+		return subTaskId;
+	}
+
+
+
+	public Task getTaskId() {
+		return taskId;
+	}
+
+
+
+	public Employee getEmployeeId() {
+		return employeeId;
+	}
+
+	public String getSubTaskTitle() {
+		return subTaskTitle;
+	}
+
+	
+
+	public String getSubTaskDescription() {
+		return subTaskDescription;
+	}
+
+
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+
+	public Date getDueDate() {
+		return dueDate;
+	}
+
+	
+	public Long getProgressPercentage() {
+		return progressPercentage;
+	}
+
+	public void setProgressPercentage(Long progressPercentage) {
+		this.progressPercentage = progressPercentage;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
 
 }

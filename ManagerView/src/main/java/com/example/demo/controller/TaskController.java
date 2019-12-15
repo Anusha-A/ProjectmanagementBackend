@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.Task;
+import com.example.demo.service.TaskService;
 import com.example.demo.service.TaskServiceImpl;
 
 @RestController
@@ -22,21 +23,22 @@ import com.example.demo.service.TaskServiceImpl;
 public class TaskController {
 	@Autowired
 	private Environment env;
+	
 	@Autowired
-	private TaskServiceImpl taskServiceImpl;
+	private TaskService taskService;
 	
 	@LoadBalanced
 	@PostMapping("/Task")
 	public Task saveTask(@RequestBody Task task) {	
 		System.out.println(env.getProperty("server.port"));
-		return taskServiceImpl.saveTask(task);
+		return taskService.saveTask(task);
 	}
 	
 	@LoadBalanced
 	@GetMapping("/TaskByProjectId/{projectId}")
 	public List<Task> getProjectById(@PathVariable Long projectId){	
 		System.out.println(env.getProperty("server.port"));
-		return taskServiceImpl.getAllTasksByProjectId(projectId);
+		return taskService.getAllTasksByProjectId(projectId);
 	}
 
 }

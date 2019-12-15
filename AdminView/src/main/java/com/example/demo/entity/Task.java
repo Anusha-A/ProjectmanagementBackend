@@ -21,7 +21,7 @@ import lombok.Data;
 
 @SuppressWarnings("serial")
 @Entity
-@Data
+
 @Table(name = "task")
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class Task implements Serializable 
@@ -54,4 +54,51 @@ public class Task implements Serializable
 	
 	@Column(name = "progress",columnDefinition = "bigint default 0")
 	private Long progress;
+
+	public Long getTaskId() {
+		return taskId;
+	}
+
+	
+
+	public Project getProjectId() {
+		return projectId;
+	}
+
+	
+
+	public String getTaskTitle() {
+		return taskTitle;
+	}
+
+	
+	public String getDescription() {
+		return description;
+	}
+
+	
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	
+
+	public Date getDueDate() {
+		return dueDate;
+	}
+
+	
+
+	public Long getSubTaskCount() {
+		return subTaskCount;
+	}
+
+	
+
+	public Long getProgress() {
+		return progress;
+	}
+
+	
 }	

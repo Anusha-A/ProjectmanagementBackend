@@ -21,14 +21,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Data
+
 @Entity
 @Table(name = "employee")
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
-//@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Employee implements Serializable
 {
@@ -66,5 +63,56 @@ public class Employee implements Serializable
 	private boolean availability;
 	
 	@Column(name = "eul_agreement", columnDefinition="boolean default 0")
-	private boolean eulAgreement; 
+	private boolean eulAgreement;
+
+	public Long getEmployeeId() {
+		return employeeId;
+	}
+
+	
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	
+
+	public String getMiddleName() {
+		return middleName;
+	}
+
+	
+
+	public String getLastName() {
+		return lastName;
+	}
+
+
+	public String getUserType() {
+		return userType;
+	}
+
+	
+
+	public String getUsername() {
+		return username;
+	}
+
+	
+	public String getPassword() {
+		return password;
+	}
+
+	
+
+	public boolean isAvailability() {
+		return availability;
+	}
+
+
+	public boolean isEulAgreement() {
+		return eulAgreement;
+	}
+
+	
 }

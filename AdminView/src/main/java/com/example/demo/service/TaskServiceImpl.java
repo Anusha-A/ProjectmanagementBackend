@@ -20,11 +20,11 @@ public class TaskServiceImpl implements TaskService {
 
 	private TaskRepository taskRepository;
 
-	@Override
+	/*@Override
 	public List<Task> getTasks() {
 		// TODO Auto-generated method stub
 		return taskRepository.findAll();
-	}
+	}*/
 
 	@Override
 	@Transactional

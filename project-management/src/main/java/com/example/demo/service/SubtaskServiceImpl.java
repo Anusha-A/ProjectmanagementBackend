@@ -41,13 +41,13 @@ public class SubtaskServiceImpl implements SubtaskService {
 	public List<Subtask> getAllSubtasks(Long empId) {
 		//return subtaskdao.getAllSubtasks(empId);
 		List<Subtask> selected = new ArrayList<Subtask>();
-		Long id = 2L;
+		//Long id = 2L;
 		Optional<Employee> emp = empRepo.findById(empId);
 
 		System.out.println(emp);
 		List<Subtask> subs = subtaskRepo.findByEmployeeId(emp);
 		for (Subtask sub : subs) {
-			if (!sub.getProgressPercentage().equals(100)) {
+			if (sub.getProgressPercentage() != 100 ) {
 				selected.add(sub);
 			}
 
